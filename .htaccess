@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /new_homee/
+
+# If file or folder exists, serve it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Otherwise, route everything to index.php
+RewriteRule ^([^/]+)/?$ index.php?page=$1 [L,QSA]
+
+# Route /property_details/123 -> properties_details.php?id=123
+RewriteRule ^property_details/([0-9]+)/?$ properties_f/properties_details.php?id=$1 [L]
